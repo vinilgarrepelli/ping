@@ -198,7 +198,7 @@ if (galaxyCanvas) {
     galaxyCanvas.style.height = `${window.innerHeight}px`;
     context.setTransform(ratio, 0, 0, ratio, 0, 0);
     stars.length = 0;
-    const count = Math.min(520, Math.max(280, Math.floor(window.innerWidth * window.innerHeight / 2600)));
+    const count = Math.min(1100, Math.max(600, Math.floor(window.innerWidth * window.innerHeight / 1250)));
     for (let index = 0; index < count; index += 1) {
       stars.push({
         x: Math.random() * window.innerWidth,
