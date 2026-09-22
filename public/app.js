@@ -232,19 +232,15 @@ if (galaxyCanvas) {
         const distanceX = pointer.x - star.x;
         const distanceY = pointer.y - star.y;
         const distance = Math.max(Math.hypot(distanceX, distanceY), 1);
-        const pull = Math.max(0, 1 - distance / 620) * (.035 + star.depth * .045);
-        dx = distanceX / distance * pull * 12;
-        dy = distanceY / distance * pull * 12;
+        const pull = Math.max(0, 1 - distance / 720) * (.11 + star.depth * .12);
+        dx = distanceX / distance * pull * 28;
+        dy = distanceY / distance * pull * 28;
         star.x += dx;
         star.y += dy;
-        if (distance < 34) {
-          star.x = Math.random() * width;
-          star.y = Math.random() * height;
-        }
       }
       const alpha = .42 + star.depth * .45 + (Math.sin(time * .002 + star.phase) + 1) * .08;
       context.beginPath();
-      context.arc(star.x, star.y + drift, star.radius + (pointer.active ? star.depth * .35 : 0), 0, Math.PI * 2);
+      context.arc(star.x, star.y + drift, star.radius + (pointer.active ? star.depth * .55 : 0), 0, Math.PI * 2);
       context.fillStyle = `rgba(190, 235, 255, ${alpha})`;
       context.fill();
     }
