@@ -196,7 +196,7 @@ input:focus { transform: translateY(-1px); box-shadow: 0 0 0 3px rgba(184,243,25
 .report-submit { width: 100%; margin-top: 16px; border: 0; cursor: pointer; }
 .hidden { display: none !important; }
 .chat-card { height: min(720px, 86vh); display: flex; flex-direction: column; overflow: hidden; }
-.chat-header { display: flex; justify-content: space-between; align-items: center; padding: 24px 28px; border: 1px solid var(--line); border-radius: 20px 20px 0 0; background: linear-gradient(145deg, var(--panel), var(--card-end)); box-shadow: 0 12px 34px rgba(0, 0, 0, .24), inset 0 1px rgba(255, 255, 255, .1); backdrop-filter: blur(24px) saturate(130%); }
+.chat-header { display: flex; justify-content: space-between; align-items: center; margin: 8px 0 6px; padding: 17px 22px; border: 1px solid var(--line); border-radius: 16px; background: linear-gradient(145deg, var(--panel), var(--card-end)); box-shadow: 0 12px 34px rgba(0, 0, 0, .24), inset 0 1px rgba(255, 255, 255, .1); backdrop-filter: blur(24px) saturate(130%); }
 .header-actions { display: flex; align-items: center; gap: 16px; }
 .chat-menu { position: relative; }
 .chat-menu-toggle { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 3px; width: 36px; height: 36px; padding: 0; border: 1px solid var(--line); border-radius: 50%; background: linear-gradient(145deg, var(--surface), var(--card-end)); box-shadow: inset 1px 1px 2px #fff3, inset -2px -2px 3px #0005, 0 2px 5px #0004; }
@@ -226,9 +226,9 @@ input:focus { transform: translateY(-1px); box-shadow: 0 0 0 3px rgba(184,243,25
 .message-text { margin: 0; color: var(--body-copy); line-height: 1.45; white-space: pre-wrap; overflow-wrap: anywhere; }
 .system-message { margin: 14px 0; text-align: center; color: var(--muted); font: 11px "DM Mono", monospace; }
 .attachment { display: inline-flex; gap: 8px; align-items: center; margin-top: 8px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: rgba(77, 135, 184, .1); color: var(--accent); text-decoration: none; font-size: 13px; }
-.composer { position: relative; padding: 14px 20px 18px; border: 1px solid var(--line); border-radius: 0 0 20px 20px; background: linear-gradient(145deg, var(--panel), var(--card-end)); box-shadow: 0 -12px 34px rgba(0, 0, 0, .24), inset 0 1px rgba(255, 255, 255, .1); backdrop-filter: blur(24px) saturate(130%); }
+.composer { position: relative; display: flex; align-items: center; gap: 7px; margin: 6px 0 8px; padding: 10px 16px 12px; border: 1px solid var(--line); border-radius: 16px; background: linear-gradient(145deg, var(--panel), var(--card-end)); box-shadow: 0 -12px 34px rgba(0, 0, 0, .24), inset 0 1px rgba(255, 255, 255, .1); backdrop-filter: blur(24px) saturate(130%); }
 .emoji-toolbar { position: relative; flex: 0 0 30px; margin: 0; }
-.emoji-toggle { width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 11px; background: rgba(77, 135, 184, .1); color: var(--accent); font-size: 19px; }
+.emoji-toggle { width: 36px; height: 36px; border: 1px solid var(--line); border-radius: 10px; background: rgba(77, 135, 184, .1); color: var(--accent); font-size: 17px; }
 .emoji-toggle:hover { border-color: var(--accent); }
 .emoji-picker { position: absolute; bottom: 36px; left: 0; display: grid; grid-template-columns: repeat(6, 1fr); gap: 4px; width: 222px; padding: 8px; border: 1px solid var(--line); border-radius: 12px; background: var(--card-end); box-shadow: 0 14px 30px #0008; backdrop-filter: blur(18px); }
 .emoji-picker button { width: 32px; height: 32px; border-radius: 8px; background: transparent; color: var(--text); font-size: 18px; }
@@ -243,12 +243,12 @@ input:focus { transform: translateY(-1px); box-shadow: 0 0 0 3px rgba(184,243,25
 .composer .composer-row input { order: 3; flex: 1 1 auto; min-width: 0; }
 .composer .voice-button { order: 4; }
 .composer .send-button { order: 5; }
-.composer-row input { padding: 13px 14px; }
-.attach-button { display: grid; place-items: center; flex: 0 0 44px; height: 44px; margin: 0; border: 1px solid var(--line); border-radius: 11px; color: var(--muted); cursor: pointer; font-size: 23px; }
+.composer-row input { min-height: 42px; padding: 10px 14px; }
+.attach-button { display: grid; place-items: center; flex: 0 0 36px; height: 36px; margin: 0; border: 1px solid var(--line); border-radius: 10px; color: var(--muted); cursor: pointer; font-size: 19px; }
 .attach-button input { display: none; }
-.voice-button { flex: 0 0 44px; height: 44px; border: 1px solid var(--line); border-radius: 11px; background: rgba(77, 135, 184, .1); color: var(--accent); font-size: 18px; }
+.voice-button { flex: 0 0 36px; height: 36px; border: 1px solid var(--line); border-radius: 10px; background: rgba(77, 135, 184, .1); color: var(--accent); font-size: 15px; }
 .voice-button.recording { background: #e8799b; border-color: #ffb0c8; color: #240914; animation: recording-pulse 1s ease-in-out infinite; }
-.send-button { flex: 0 0 44px; height: 44px; border-radius: 11px; background: var(--accent); color: var(--accent-ink); box-shadow: 0 0 22px var(--theme-glow); font-size: 21px; }
+.send-button { flex: 0 0 36px; height: 36px; border-radius: 10px; background: var(--accent); color: var(--accent-ink); box-shadow: 0 0 22px var(--theme-glow); font-size: 18px; }
 .composer-hint { margin: 8px 0 0 54px; font-size: 9px; letter-spacing: .04em; }
 .attachment-preview { margin: 0 0 9px 54px; color: var(--muted); font-size: 12px; }
 .voice-message { display: block; width: min(280px, 100%); height: 36px; margin-top: 8px; }
