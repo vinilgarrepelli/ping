@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title>PING logo</title>
+  <desc>An iridescent plum rounded rectangular chat logo with a pearl ping waveform.</desc>
+  <defs>
+    <linearGradient id="aurora" x1="24" y1="20" x2="230" y2="236" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D99CFF"/>
+      <stop offset=".48" stop-color="#A871D6"/>
+      <stop offset="1" stop-color="#7045A6"/>
+    </linearGradient>
+  </defs>
+  <rect x="12" y="12" width="232" height="232" rx="62" fill="#1B1027"/>
+  <path d="M56 43h144c24 0 43 19 43 43v82c0 24-19 43-43 43h-69l-48 33 12-33H56c-24 0-43-19-43-43V86c0-24 19-43 43-43Z" fill="url(#aurora)"/>
+  <path d="M64 128h27l12-29 20 59 18-44 12 14h39" fill="none" stroke="#FFF0C9" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="64" cy="128" r="6" fill="#FFE7B3"/>
+  <circle cx="192" cy="128" r="6" fill="#FFE7B3"/>
+</svg>

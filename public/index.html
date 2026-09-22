@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PING</title>
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <canvas id="galaxy-canvas" aria-hidden="true"></canvas>
+      <section id="welcome" class="welcome-card">
+        <div class="theme-control">
+          <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Show themes" aria-expanded="false" title="Choose theme"></button>
+          <div id="theme-palette" class="theme-palette hidden" aria-label="Choose theme">
+            <button class="theme-swatch theme-aurora" type="button" data-theme-choice="aurora" aria-label="Aurora theme" title="Aurora"></button>
+            <button class="theme-swatch theme-midnight" type="button" data-theme-choice="midnight" aria-label="Midnight theme" title="Midnight"></button>
+            <button class="theme-swatch theme-ember" type="button" data-theme-choice="ember" aria-label="Ember theme" title="Ember"></button>
+            <button class="theme-swatch theme-mono" type="button" data-theme-choice="mono" aria-label="Mono theme" title="Mono"></button>
+            <button class="theme-swatch theme-white" type="button" data-theme-choice="white" aria-label="White theme" title="White"></button>
+            <button class="theme-swatch theme-black" type="button" data-theme-choice="black" aria-label="Black theme" title="Black"></button>
+          </div>
+        </div>
+        <p id="login-notice" class="login-notice" hidden></p>
+        <img class="ping-logo" src="/logo.svg" alt="PING logo" />
+        <p class="eyebrow">WELCOME TO PING</p>
+        <h1>Welcome to PING</h1>
+        <p class="login-intro">Chat, share, and connect.</p>
+        <div class="feature-list" aria-label="PING features">
+          <div class="feature"><span>✦</span><div><strong>Join instantly</strong></div></div>
+          <div class="feature"><span>⌁</span><div><strong>Chat and share</strong></div></div>
+          <div class="feature"><span>◌</span><div><strong>Private by design</strong></div></div>
+        </div>
+        <form id="join-form">
+          <label for="name">Enter your name</label>
+          <input id="name" name="name" maxlength="32" autocomplete="nickname" placeholder="Your name" required />
+          <button type="submit">Join chat <span>→</span></button>
+        </form>
+        <p class="privacy-note">No account. No history.</p>
+        <button id="connect-button" class="connect-us" type="button">
+          <span>CONNECT US</span>
+          <small>App details and contact</small>
+        </button>
+      </section>
+
+      <section id="chat" class="chat-card hidden">
+        <header class="chat-header">
+          <div>
+            <h2>PING</h2>
+          </div>
+          <div class="header-actions">
+            <div class="online-count"><span id="online">0</span> online</div>
+            <div class="chat-menu">
+              <button id="chat-menu-toggle" class="chat-menu-toggle" type="button" aria-label="Open chat menu" aria-expanded="false">•••</button>
+              <div id="chat-menu-panel" class="chat-menu-panel hidden">
+                <button id="sound-toggle" class="menu-action" type="button" aria-label="Mute chat sounds">♫ <span>Sound on</span></button>
+                <button id="report-button" class="menu-action" type="button" aria-label="Report a user">▣ <span>Report user</span></button>
+                <button id="leave-button" class="menu-action menu-leave" type="button"><span>Leave chat</span></button>
+              </div>
+            </div>
+          </div>
+        </header>
+        <div id="messages" class="messages" aria-live="polite"></div>
+        <form id="composer" class="composer">
+          <div id="attachment-preview" class="attachment-preview hidden"></div>
+          <div class="emoji-toolbar">
+            <button id="emoji-toggle" class="emoji-toggle" type="button" aria-label="Open emoji picker">☺</button>
+            <div id="emoji-picker" class="emoji-picker hidden" aria-label="Emoji picker">
+              <button type="button">😀</button><button type="button">😂</button><button type="button">😍</button>
+              <button type="button">🤔</button><button type="button">😎</button><button type="button">😭</button>
+              <button type="button">🔥</button><button type="button">🎉</button><button type="button">❤️</button>
+              <button type="button">👍</button><button type="button">🙌</button><button type="button">✨</button>
+            </div>
+          </div>
+          <div class="composer-row">
+            <label class="attach-button" title="Share a file">
+              <input id="file-input" type="file" accept="image/*,video/*,audio/*,.pdf,.txt,.zip" />
+              <span>＋</span>
+            </label>
+            <input id="message-input" maxlength="2000" autocomplete="off" placeholder="Write something..." />
+            <button id="voice-button" class="voice-button" type="button" aria-label="Hold to record voice message">●</button>
+            <button class="send-button" type="submit" aria-label="Send message">↑</button>
+          </div>
+        </form>
+      </section>
+    </main>
+      <div id="report-modal" class="report-modal hidden" role="dialog" aria-modal="true" aria-labelledby="report-title">
+        <form id="report-form" class="report-panel">
+          <button id="close-report" class="close-connect" type="button" aria-label="Close report dialog">×</button>
+          <p class="eyebrow">ROOM SAFETY</p>
+          <h2 id="report-title">Report a user</h2>
+          <p class="connect-description">Enter the exact username. Three different members reporting the same connected user will remove them from this room.</p>
+          <label for="report-name">Username</label>
+          <input id="report-name" maxlength="32" autocomplete="off" placeholder="Username to report" required />
+          <button class="contact-button report-submit" type="submit">Submit report <span>→</span></button>
+        </form>
+      </div>
+      <div id="connect-modal" class="connect-modal hidden" role="dialog" aria-modal="true" aria-labelledby="connect-title">
+      <div class="connect-panel">
+        <button id="close-connect" class="close-connect" type="button" aria-label="Close details">×</button>
+        <p class="eyebrow">ABOUT PING</p>
+        <h2 id="connect-title">Stay connected.</h2>
+        <p class="connect-description">PING is a lightweight space for instant conversations, emojis, media, and voice messages.</p>
+        <div class="connect-details">
+          <span>APP</span><strong>PING</strong>
+          <span>CONTACT</span><a href="mailto:pingaplot@gmail.com">pingaplot@gmail.com</a>
+        </div>
+        <a
+          class="contact-button"
+          href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=pingaplot%40gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Open Gmail to email PING"
+        >Email us <span>→</span></a>
+      </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/app.js"></script>
+  </body>
+</html>
