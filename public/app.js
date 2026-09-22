@@ -204,7 +204,7 @@ if (galaxyCanvas) {
         x: Math.random() * window.innerWidth,
         y: Math.random() * window.innerHeight,
         radius: Math.random() * 1.35 + .25,
-        speed: Math.random() * .2 + .04,
+        speed: (Math.random() * .2 + .04) * .3,
         phase: Math.random() * Math.PI * 2,
         depth: Math.random() * .85 + .15
       });
@@ -221,6 +221,7 @@ if (galaxyCanvas) {
     glow.addColorStop(1, "rgba(0, 0, 0, 0)");
     context.fillStyle = glow;
     context.fillRect(0, 0, width, height);
+    const starColor = getComputedStyle(document.documentElement).getPropertyValue("--star-color").trim() || "#f5fbff";
 
     for (const star of stars) {
       const drift = reducedMotion ? 0 : Math.sin(time * .0004 + star.phase) * .7;
@@ -232,7 +233,7 @@ if (galaxyCanvas) {
         const distanceX = pointer.x - star.x;
         const distanceY = pointer.y - star.y;
         const distance = Math.max(Math.hypot(distanceX, distanceY), 1);
-        const pull = Math.max(0, 1 - distance / 720) * (.11 + star.depth * .12);
+        const pull = Math.max(0, 1 - distance / 720) * (.11 + star.depth * .12) * .3;
         dx = distanceX / distance * pull * 28;
         dy = distanceY / distance * pull * 28;
         star.x += dx;
@@ -241,7 +242,9 @@ if (galaxyCanvas) {
       const alpha = .42 + star.depth * .45 + (Math.sin(time * .002 + star.phase) + 1) * .08;
       context.beginPath();
       context.arc(star.x, star.y + drift, star.radius + (pointer.active ? star.depth * .55 : 0), 0, Math.PI * 2);
-      context.fillStyle = `rgba(190, 235, 255, ${alpha})`;
+      context.fillStyle = starColor.startsWith("#")
+        ? `${starColor}${Math.round(Math.min(alpha, 1) * 255).toString(16).padStart(2, "0")}`
+        : starColor;
       context.fill();
     }
     if (!reducedMotion) window.requestAnimationFrame(drawGalaxy);
