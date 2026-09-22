@@ -20,6 +20,11 @@ Before distributing a release APK, edit `PING_LOGIN_NOTICE` in `app\src\main\jav
 
 No Gradle wrapper is included, and Gradle/Android SDK installation is not required to inspect this scaffold.
 
+GitHub Actions can build the debug APK without installing the Android toolchain
+on the local computer. The workflow in `.github\workflows\android-apk.yml`
+runs on pushes to `main` and can also be started manually. Its completed run
+contains a downloadable `ping-debug-apk` artifact.
+
 ## Build a debug APK
 
 From this directory (`C:\capp\android`), with the required tooling installed:
