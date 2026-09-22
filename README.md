@@ -35,6 +35,6 @@ start`, and use `/api/status` as the health check.
 - The PING logo is available at `public/logo.svg` and is used on the login page and browser tab.
 - Login includes Aurora, Midnight, Ember, Mono, White, and Black themes; the selected theme is saved in the browser.
 - Connect us email: `pingaplot@gmail.com`.
-- An optional one-line login announcement can be edited in `public/app.js` using `LOGIN_NOTICE`; leave it empty to hide it. The Android copy is edited as `PING_LOGIN_NOTICE` in `android\app\src\main\java\com\ping\app\MainActivity.kt`.
+- An optional one-line login announcement can be edited in `public/app.js` using `LOGIN_NOTICE`; leave it empty to hide it.
 
 This is intentionally lightweight and has no accounts, database, or persistent storage.

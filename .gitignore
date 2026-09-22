@@ -1,8 +1,5 @@
 node_modules/
 .tools/
-android/.gradle/
-android/build/
-android/app/build/
 .env
 npm-debug.log*
 http://localhost:3000
