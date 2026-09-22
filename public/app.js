@@ -457,8 +457,9 @@ function resetRoom() {
 
 function renderMessage(message) {
   playSound(message.name === currentName ? "send" : "receive");
+  const isMine = message.name === currentName;
   const item = document.createElement("article");
-  item.className = "message";
+  item.className = isMine ? "message mine" : "message";
   const initial = document.createElement("div");
   initial.className = "avatar";
   initial.textContent = message.avatar || message.name[0].toUpperCase();
@@ -495,7 +496,8 @@ function renderMessage(message) {
       content.append(link);
     }
   }
-  item.append(initial, content);
+  if (isMine) item.append(content, initial);
+  else item.append(initial, content);
   messages.append(item);
   messages.scrollTop = messages.scrollHeight;
 }

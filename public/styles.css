@@ -199,6 +199,12 @@ input:focus { transform: translateY(-1px); box-shadow: 0 0 0 3px rgba(184,243,25
 .online-count { color: var(--muted); font: 12px "DM Mono", monospace; }
 .messages { flex: 1; overflow-y: auto; padding: 22px 28px; }
 .message { display: flex; gap: 12px; margin: 0 0 20px; }
+.message.mine { justify-content: flex-end; }
+.message.mine .message-content { order: 1; max-width: min(78%, 520px); }
+.message.mine .avatar { order: 2; }
+.message.mine .message-meta { justify-content: flex-end; }
+.message.mine .message-text { padding: 10px 13px; border-radius: 15px 15px 4px 15px; background: var(--accent); color: var(--accent-ink); }
+.message.mine .attachment, .message.mine .voice-message { margin-left: auto; }
 .avatar { flex: 0 0 34px; height: 34px; display: grid; place-items: center; border-radius: 11px; background: linear-gradient(135deg, #304c66, #393b6e); border: 1px solid rgba(184,243,255,.18); color: var(--accent); font-weight: 600; }
 .message-content { min-width: 0; }
 .message-meta { display: flex; gap: 10px; align-items: baseline; margin: 1px 0 5px; }
